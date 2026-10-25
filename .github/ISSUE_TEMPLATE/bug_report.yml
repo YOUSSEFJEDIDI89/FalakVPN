@@ -1,0 +1,63 @@
+name: Bug report
+description: Something in Falak VPN does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please do **not** paste private keys,
+        server credentials or personal subscription links into an issue.
+  - type: input
+    id: android
+    attributes:
+      label: Android version
+      placeholder: "Android 14 (API 34)"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: "Pixel 8"
+    validations:
+      required: false
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Protocol
+      options:
+        - VLESS
+        - Trojan
+        - SOCKS5
+        - HTTP CONNECT
+        - Not applicable
+    validations:
+      required: true
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: What happens?
+      options:
+        - The app does not connect
+        - The server test fails
+        - Pages load but stay broken
+        - Some apps do not work through the tunnel
+        - Crash
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Details
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logcat output
+      description: `adb logcat -s FalakVpn`
+      render: shell
+    validations:
+      required: false
